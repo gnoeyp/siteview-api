@@ -1,7 +1,7 @@
 {
   "name": "@cupix-sdk/siteview4embed",
   "description": "siteview4embed",
-  "version": "0.1.29",
+  "version": "0.1.30",
   "scripts": {
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
@@ -22,14 +22,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/cupix-api/siteview-api"
+    "url": "https://github.com/cupixrnd/siteview-api"
   },
   "bugs": {
-    "url": "https://github.com/cupix-api/siteview-api/issues"
+    "url": "https://github.com/cupixrnd/siteview-api/issues"
   },
   "keywords": [
     "cupix",
-    "cupix-api",
+    "cupixrnd",
     "siteview",
     "siteview-api"
   ],
