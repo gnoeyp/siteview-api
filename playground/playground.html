@@ -118,8 +118,25 @@
               <li><a href="#" onclick="siteView4embed.setCameraMove('BACK')">Move Backward</a></li>
               <li><a href="#" onclick="siteView4embed.setCameraMove('LEFT')">Move Left</a></li>
               <li><a href="#" onclick="siteView4embed.setCameraMove('RIGHT')">Move Right</a></li>
+                          <li><a href="#" id="continuous-rotate-left">Continuous Rotate Left</a></li>
             </ul>
           </div>
+
+          <script>
+            let rotateInterval;
+
+            document.getElementById('continuous-rotate-left').addEventListener('click', function () {
+              if (rotateInterval) {
+                clearInterval(rotateInterval); // 중복 실행 방지
+                rotateInterval = null;
+              } else {
+                rotateInterval = setInterval(() => {
+                  siteView4embed.setCameraRotate('LEFT', 0.1);
+                }, 1000 / 30); // 1초에 30번 실행
+              }
+            });
+          </script>
+
         </li>
         <li class="mb-1">
           <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
