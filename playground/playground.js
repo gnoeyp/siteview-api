@@ -1,5 +1,6 @@
 const isProd = /cupixrnd.github.io/.test(window.location.href);
-const target = isProd ? "https://apidemo.cupix.works/sv/9hivpe82w8" : "http://cupix.local.cupix.works:4200";
+// const target = isProd ? "https://apidemo.cupix.works/sv/9hivpe82w8" : "http://cupix.local.cupix.works:4200";
+const target = "https://cupix.cupix.works/sv/aqjxei";
 const apiToken = isProd ? '' : '';
 const accessCode = isProd ? '' : '';
 
