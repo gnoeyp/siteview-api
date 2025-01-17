@@ -130,7 +130,10 @@
                 clearInterval(rotateInterval); // 중복 실행 방지
                 rotateInterval = null;
               } else {
+                var callNumber = 0;
                 rotateInterval = setInterval(() => {
+                  callNumber++;
+                  console.log(new Date().toISOString(), callNumber);
                   siteView4embed.setCameraRotate('LEFT', 0.1);
                 }, 1000 / 30); // 1초에 30번 실행
               }
