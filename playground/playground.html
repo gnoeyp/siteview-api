@@ -123,6 +123,7 @@
           </div>
 
           <script>
+            let start;
             let rotateInterval;
 
             document.getElementById('continuous-rotate-left').addEventListener('click', function () {
@@ -131,9 +132,11 @@
                 rotateInterval = null;
               } else {
                 var callNumber = 0;
+                start = new Date().getTime();
                 rotateInterval = setInterval(() => {
                   callNumber++;
-                  console.log(new Date().toISOString(), callNumber);
+                  elapsed = new Date().getTime() - start;
+                  console.log(new Date().toISOString(), elapsed, callNumber);
                   siteView4embed.setCameraRotate('LEFT', 0.1);
                 }, 1000 / 30); // 1초에 30번 실행
               }
