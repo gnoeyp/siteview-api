@@ -125,20 +125,29 @@
           <script>
             let start;
             let rotateInterval;
+            let lastTime = 0;
+
+            function rotateCamera(timestamp) {
+              if (!start) start = timestamp;
+              const elapsed = timestamp - start;
+
+              const deltaTime = (elapsed - lastTime) / 1000;
+              const rotationSpeed = 0.1; // radians per second
+
+              siteView4embed.setCameraRotate('LEFT', rotationSpeed * deltaTime);
+              lastTime = elapsed;
+
+              rotateInterval = requestAnimationFrame(rotateCamera);
+            }
 
             document.getElementById('continuous-rotate-left').addEventListener('click', function () {
               if (rotateInterval) {
-                clearInterval(rotateInterval); // 중복 실행 방지
-                rotateInterval = null;
+              cancelAnimationFrame(rotateInterval); // 중복 실행 방지
+              rotateInterval = null;
+              start = null;
+              lastTime = 0;
               } else {
-                var callNumber = 0;
-                start = new Date().getTime();
-                rotateInterval = setInterval(() => {
-                  callNumber++;
-                  elapsed = new Date().getTime() - start;
-                  console.log(new Date().toISOString(), elapsed, callNumber);
-                  siteView4embed.setCameraRotate('LEFT', 0.1);
-                }, 1000 / 30); // 1초에 30번 실행
+              rotateInterval = requestAnimationFrame(rotateCamera);
               }
             });
           </script>
